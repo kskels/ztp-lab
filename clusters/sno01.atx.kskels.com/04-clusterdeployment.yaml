@@ -1,0 +1,23 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: sno01-atx-kskels-com
+  namespace: sno01-atx-kskels-com
+spec:
+  baseDomain: atx.kskels.com
+  clusterName: sno01
+  controlPlaneConfig:
+    servingCertificates: {}
+  installed: false
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: sno01-atx-kskels-com
+    version: v1beta1
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          cluster-name: "sno01"
+  pullSecretRef:
+    name: pull-secret

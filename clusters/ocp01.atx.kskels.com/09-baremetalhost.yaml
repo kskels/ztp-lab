@@ -1,0 +1,99 @@
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: bmc-secret-node01
+  namespace: ocp01-atx-kskels-com
+stringData:
+  username: admin
+  password: admin
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: ocp01-node01
+  namespace: ocp01-atx-kskels-com
+  labels:
+    infraenvs.agent-install.openshift.io: "ocp01-atx-kskels-com"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "ocp01-node01"
+spec:
+  online: true
+  bootMACAddress: 52:54:00:e0:41:f9
+  automatedCleaningMode: metadata
+  rootDeviceHints:
+    deviceName: "/dev/vda"
+  bmc:
+    # for test lab using libvirt with sushy-tools
+    # https://docs.openstack.org/sushy-tools/latest/
+    address: redfish-virtualmedia+http://192.168.211.5:8000/redfish/v1/Systems/fb5300b3-c327-4b3c-be05-0e012e9ceadf
+    credentialsName: bmc-secret-node01
+    disableCertificateVerification: true
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: bmc-secret-node02
+  namespace: ocp01-atx-kskels-com
+stringData:
+  username: admin
+  password: admin
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: ocp01-node02
+  namespace: ocp01-atx-kskels-com
+  labels:
+    infraenvs.agent-install.openshift.io: "ocp01-atx-kskels-com"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "ocp01-node02"
+spec:
+  online: true
+  bootMACAddress: 52:54:00:df:ac:7b
+  automatedCleaningMode: metadata
+  rootDeviceHints:
+    deviceName: "/dev/vda"
+  bmc:
+    # for test lab using libvirt with sushy-tools
+    # https://docs.openstack.org/sushy-tools/latest/
+    address: redfish-virtualmedia+http://192.168.211.5:8000/redfish/v1/Systems/73396534-67aa-4fed-86de-76fb18e7b05a
+    credentialsName: bmc-secret-node02
+    disableCertificateVerification: true
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: bmc-secret-node03
+  namespace: ocp01-atx-kskels-com
+stringData:
+  username: admin
+  password: admin
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: ocp01-node03
+  namespace: ocp01-atx-kskels-com
+  labels:
+    infraenvs.agent-install.openshift.io: "ocp01-atx-kskels-com"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "ocp01-node03"
+spec:
+  online: true
+  bootMACAddress: 52:54:00:53:4d:ef
+  automatedCleaningMode: metadata
+  rootDeviceHints:
+    deviceName: "/dev/vda"
+  bmc:
+    # for test lab using libvirt with sushy-tools
+    # https://docs.openstack.org/sushy-tools/latest/
+    address: redfish-virtualmedia+http://192.168.211.5:8000/redfish/v1/Systems/29ee8a65-edf2-42e3-ab92-40f381e550af
+    credentialsName: bmc-secret-node03
+    disableCertificateVerification: true

@@ -1,0 +1,34 @@
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: bmc-secret
+  namespace: sno01-atx-kskels-com
+stringData:
+  username: admin
+  password: admin
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: sno01
+  namespace: sno01-atx-kskels-com
+  labels:
+    infraenvs.agent-install.openshift.io: "sno01-atx-kskels-com"
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "sno01"
+spec:
+  online: true
+  bootMACAddress: 52:54:00:4e:3a:2e
+  automatedCleaningMode: metadata
+  rootDeviceHints:
+    deviceName: "/dev/vda"
+  bmc:
+    # for test lab using libvirt with sushy-tools
+    # https://docs.openstack.org/sushy-tools/latest/
+    address: redfish-virtualmedia+http://192.168.211.5:8000/redfish/v1/Systems/13e092cd-71ed-43c9-a75e-e4eaa21a4d62
+    credentialsName: bmc-secret
+    disableCertificateVerification: true
+...

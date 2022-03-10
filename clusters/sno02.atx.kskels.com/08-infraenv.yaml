@@ -1,0 +1,20 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+  name: sno02-atx-kskels-com
+  namespace: sno02-atx-kskels-com
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false
+spec:
+  clusterRef:
+    name: sno02-atx-kskels-com
+    namespace: sno02-atx-kskels-com
+  sshAuthorizedKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDst3pB7hKcKLvq2P7vON4OKgUZDInk9zEu/Kz2ruh/D kskels@redhat.com'
+  agentLabelSelector:
+    matchLabels:
+      cluster-name: sno02
+  pullSecretRef:
+    name: pull-secret
+  nmStateConfigLabelSelector:
+    matchLabels:
+      cluster-name: sno02

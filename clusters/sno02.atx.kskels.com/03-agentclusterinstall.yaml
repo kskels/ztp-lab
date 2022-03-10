@@ -1,0 +1,23 @@
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: sno02-atx-kskels-com
+  namespace: sno02-atx-kskels-com
+  annotations:
+    agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
+spec:
+  clusterDeploymentRef:
+    name: sno02-atx-kskels-com
+  imageSetRef:
+    name: openshift-v4.9.23
+  networking:
+    clusterNetwork:
+      - cidr: "10.100.0.0/16"
+        hostPrefix: 23
+    serviceNetwork:
+      - "172.101.0.0/16"
+    machineNetwork:
+      - cidr: "192.168.212.0/24"
+  provisionRequirements:
+    controlPlaneAgents: 1
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDst3pB7hKcKLvq2P7vON4OKgUZDInk9zEu/Kz2ruh/D kskels@redhat.com"

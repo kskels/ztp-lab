@@ -1,0 +1,4 @@
+bases:
+- ocp01.atx.kskels.com
+- sno01.atx.kskels.com
+- sno02.atx.kskels.com

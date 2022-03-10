@@ -1,0 +1,111 @@
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: ocp01-node01
+  namespace: ocp01-atx-kskels-com
+  labels:
+    cluster-name: ocp01
+spec:
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.212.21
+              prefix-length: 24
+          dhcp: false
+        ipv6:
+          enabled: false
+    dns-resolver:
+      config:
+        search:
+          - kskels.com
+        server:
+          - 192.168.2.1
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.212.1
+          next-hop-interface: enp1s0
+          table-id: 254
+  interfaces:
+    - name: "enp1s0"
+      macAddress: "52:54:00:e0:41:f9"
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: ocp01-node02
+  namespace: ocp01-atx-kskels-com
+  labels:
+    cluster-name: ocp01
+spec:
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.212.22
+              prefix-length: 24
+          dhcp: false
+        ipv6:
+          enabled: false
+    dns-resolver:
+      config:
+        search:
+          - kskels.com
+        server:
+          - 192.168.2.1
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.212.1
+          next-hop-interface: enp1s0
+          table-id: 254
+  interfaces:
+    - name: "enp1s0"
+      macAddress: "52:54:00:df:ac:7b"
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: ocp01-node03
+  namespace: ocp01-atx-kskels-com
+  labels:
+    cluster-name: ocp01
+spec:
+  config:
+    interfaces:
+      - name: enp1s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.212.23
+              prefix-length: 24
+          dhcp: false
+        ipv6:
+          enabled: false
+    dns-resolver:
+      config:
+        search:
+          - kskels.com
+        server:
+          - 192.168.2.1
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.212.1
+          next-hop-interface: enp1s0
+          table-id: 254
+  interfaces:
+    - name: "enp1s0"
+      macAddress: "52:54:00:53:4d:ef"

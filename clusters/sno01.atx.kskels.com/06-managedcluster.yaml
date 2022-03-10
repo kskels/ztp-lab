@@ -1,0 +1,16 @@
+apiVersion: cluster.open-cluster-management.io/v1
+kind: ManagedCluster
+metadata:
+  name: sno01-atx-kskels-com
+  namespace: sno01-atx-kskels-com
+  labels:
+    name: "sno01"
+    sno: "true"
+    # placement label and clusterset for openshift-gitops
+    vendor: "OpenShift"
+    cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
+    usage: "development"
+    remote-cluster: "true"
+spec:
+  hubAcceptsClient: true
+  leaseDurationSeconds: 60

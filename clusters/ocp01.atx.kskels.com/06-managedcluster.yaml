@@ -1,0 +1,16 @@
+apiVersion: cluster.open-cluster-management.io/v1
+kind: ManagedCluster
+metadata:
+  name: ocp01-atx-kskels-com
+  namespace: ocp01-atx-kskels-com
+  labels:
+    name: "ocp01"
+    sno: "false"
+    # placement label and clusterset for openshift-gitops
+    vendor: "OpenShift"
+    cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
+    usage: "production"
+    remote-cluster: "true"
+spec:
+  hubAcceptsClient: true
+  leaseDurationSeconds: 60

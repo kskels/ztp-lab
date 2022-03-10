@@ -1,0 +1,24 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: sno01-atx-kskels-com
+  namespace: sno01-atx-kskels-com
+spec:
+  applicationManager:
+    argocdCluster: false
+    enabled: true
+  certPolicyController:
+    enabled: true
+  clusterLabels:
+    name: sno01
+    cloud: Baremetal
+    vendor: Libvirt 
+  clusterName: sno01
+  clusterNamespace: sno01-atx-kskels-com
+  iamPolicyController:
+    enabled: true
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: true
+  version: 2.2.0

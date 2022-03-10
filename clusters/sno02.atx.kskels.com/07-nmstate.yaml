@@ -1,0 +1,36 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: sno02-atx-kskels-com
+  namespace: sno02-atx-kskels-com
+  labels:
+    cluster-name: sno02
+spec:
+  config:
+    interfaces:
+      - name: enp8s0
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.212.60
+              prefix-length: 24
+          dhcp: false
+        ipv6:
+          enabled: false
+    dns-resolver:
+      config:
+        search:
+          - kskels.com
+        server:
+          - 192.168.2.1
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.212.1
+          next-hop-interface: enp8s0
+          table-id: 254
+  interfaces:
+    - name: "enp8s0"
+      macAddress: "52:54:00:c2:7c:d0"

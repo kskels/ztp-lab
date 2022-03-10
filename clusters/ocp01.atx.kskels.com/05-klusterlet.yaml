@@ -1,0 +1,24 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: ocp01-atx-kskels-com
+  namespace: ocp01-atx-kskels-com
+spec:
+  applicationManager:
+    argocdCluster: false
+    enabled: true
+  certPolicyController:
+    enabled: true
+  clusterLabels:
+    name: ocp01
+    cloud: Baremetal
+    vendor: OpenShift
+  clusterName: ocp01
+  clusterNamespace: ocp01-atx-kskels-com
+  iamPolicyController:
+    enabled: true
+  policyController:
+    enabled: true
+  searchCollector:
+    enabled: true
+  version: 2.2.0

@@ -1,0 +1,23 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+  name: ocp01-atx-kskels-com
+  namespace: ocp01-atx-kskels-com
+spec:
+  baseDomain: atx.kskels.com
+  clusterName: ocp01
+  controlPlaneConfig:
+    servingCertificates: {}
+  installed: false
+  clusterInstallRef:
+    group: extensions.hive.openshift.io
+    kind: AgentClusterInstall
+    name: ocp01-atx-kskels-com
+    version: v1beta1
+  platform:
+    agentBareMetal:
+      agentSelector:
+        matchLabels:
+          cluster-name: "ocp01"
+  pullSecretRef:
+    name: pull-secret
