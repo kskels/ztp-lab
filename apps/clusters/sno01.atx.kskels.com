@@ -23,7 +23,7 @@ metadata:
     apps.open-cluster-management.io/git-path: clusters/sno01.atx.kskels.com
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
-    app: cluster-sno01-telco-ocp-run
+    app: cluster-sno01-atx-kskels-com
   name: cluster-sno01-tor-subscription-1
   namespace: ztp-clusters
 spec:
