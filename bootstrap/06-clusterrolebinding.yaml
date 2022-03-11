@@ -1,0 +1,17 @@
+# IMPORTANT: This needs to be applied as part of the PoC. It can be adjusted
+# for a specific group other than ClusterRole admin, if required by the customer.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: open-cluster-management:subscription-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: open-cluster-management:subscription-admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: kube:admin
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: system:admin
