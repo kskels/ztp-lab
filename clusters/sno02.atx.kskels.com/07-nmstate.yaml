@@ -8,7 +8,7 @@ metadata:
 spec:
   config:
     interfaces:
-      - name: enp8s0
+      - name: eno8303
         type: ethernet
         state: up
         ipv4:
@@ -29,8 +29,8 @@ spec:
       config:
         - destination: 0.0.0.0/0
           next-hop-address: 192.168.212.1
-          next-hop-interface: enp8s0
+          next-hop-interface: eno8303
           table-id: 254
   interfaces:
-    - name: "enp8s0"
-      macAddress: "52:54:00:c2:7c:d0"
+    - name: "eno8303"
+      macAddress: "b8:cb:29:d9:2f:54"

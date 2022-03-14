@@ -9,7 +9,7 @@ metadata:
     # placement label and clusterset for openshift-gitops
     vendor: "OpenShift"
     cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
-    usage: "staging"
+    usage: "development"
     remote-cluster: "true"
 spec:
   hubAcceptsClient: true
