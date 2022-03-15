@@ -1,0 +1,45 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: spring-app
+  namespace: openshift-gitops
+spec:
+  generators:
+  - clusterDecisionResource:
+      configMapRef: acm-placement
+      labelSelector:
+        matchLabels:
+          cluster.open-cluster-management.io/placement: spring-app-placement
+      requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: spring-app-{{name}}
+    spec:
+      destination:
+        namespace: spring-apps-prod
+        server: '{{server}}'
+      project: default
+      source:
+        path: deploy/kustomize/overlays/prod
+        repoURL: https://github.com/kskels/spring-app.git
+        targetRevision: main
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+---
+apiVersion: cluster.open-cluster-management.io/v1alpha1
+kind: Placement
+metadata:
+  name: spring-app-placement
+  namespace: openshift-gitops
+spec:
+  predicates:
+  - requiredClusterSelector:
+      labelSelector:
+        matchLabels:
+          remote-cluster: "true"
