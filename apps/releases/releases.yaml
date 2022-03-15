@@ -12,7 +12,7 @@ spec:
     matchExpressions:
       - key: app
         operator: In
-        values: 
+        values:
           - ocp-releases
 ---
 apiVersion: apps.open-cluster-management.io/v1
