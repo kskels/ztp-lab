@@ -42,4 +42,4 @@ spec:
   - requiredClusterSelector:
       labelSelector:
         matchLabels:
-          remote-cluster: "true"
+          usage: development
