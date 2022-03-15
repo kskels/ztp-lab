@@ -1,0 +1,5 @@
+bases:
+ - managedclusterset.yaml
+ - managedclustersetbinding.yaml
+ - placement.yaml
+ - gitopscluster.yaml
