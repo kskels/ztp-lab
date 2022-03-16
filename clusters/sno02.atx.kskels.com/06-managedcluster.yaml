@@ -6,11 +6,13 @@ metadata:
   labels:
     name: "sno02"
     sno: "true"
-    # placement label and clusterset for openshift-gitops
-    vendor: "OpenShift"
-    cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
     usage: "development"
     remote-cluster: "true"
+
+    # Labels for OpenShift Gitops
+    #cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
+    #vendor: "OpenShift"
+
 spec:
   hubAcceptsClient: true
   leaseDurationSeconds: 60
