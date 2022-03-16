@@ -1,6 +1,6 @@
 # Zero Touch Provisioning with OpenShift
 
-This repo contains samples for various ZTP deployments and related configuration.
+This repo contains YAML manifests and instructions for various ZTP related demos.
 
 ![Lab Overview](docs/images/lab-overview.png?raw=true "Lab Overview")
 
