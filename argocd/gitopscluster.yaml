@@ -12,7 +12,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   argoServer:
-    cluster: notused
+    cluster: local-cluster
     argoNamespace: openshift-gitops
   placementRef:
     kind: Placement
