@@ -24,8 +24,8 @@ spec:
   online: true
   bootMACAddress: "b8:cb:29:d9:2f:54"
   automatedCleaningMode: metadata
-  #rootDeviceHints:
-  #  deviceName: "/dev/sda"
+  rootDeviceHints:
+    deviceName: "/dev/sda"
   bmc:
     address: idrac-virtualmedia+https://192.168.2.6/redfish/v1/Systems/System.Embedded.1
     credentialsName: bmc-secret
