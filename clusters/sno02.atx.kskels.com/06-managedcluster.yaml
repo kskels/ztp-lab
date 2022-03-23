@@ -8,7 +8,6 @@ metadata:
     sno: "true"
     usage: "development"
     remote-cluster: "true"
-    cloud: "all"
 
     # Labels for OpenShift Gitops
     cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
