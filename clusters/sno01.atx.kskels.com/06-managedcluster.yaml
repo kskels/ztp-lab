@@ -7,7 +7,7 @@ metadata:
     name: "sno01"
     sno: "true"
     usage: "development"
-    remote-cluster: "true"
+    remote-cluster: "truetrue"
 
     # Labels for OpenShift Gitops
     #cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
