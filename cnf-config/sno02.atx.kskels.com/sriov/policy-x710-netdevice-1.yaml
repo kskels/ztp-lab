@@ -1,0 +1,19 @@
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: policy-x710-netdevice-1
+  namespace: openshift-sriov-network-operator
+spec:
+  deviceType: netdevice
+  isRdma: false
+  linkType: eth
+  mtu: 1500
+  nicSelector:
+    vendor: "8086"
+    deviceID: "1572"
+    rootDevices:
+      - "0000:06:00.0"
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+  numVfs: 4
+  resourceName: x710_netdevice_1

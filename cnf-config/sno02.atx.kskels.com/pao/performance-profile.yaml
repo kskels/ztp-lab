@@ -1,0 +1,24 @@
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: performance-profile
+spec:
+  # add pci=realloc for X710 SR-IOV BIOS workaround, see
+  # https://access.redhat.com/solutions/37376
+  additionalKernelArgs:
+  - audit=0
+  - pci=realloc
+  hugepages:
+    defaultHugepagesSize: 1G
+    pages:
+    - count: 16
+      size: 1G
+  cpu:
+    isolated: 4-7,8-11
+    reserved: 0-3,12-15
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+  numa:
+    topologyPolicy: best-effort
+  realTimeKernel:
+    enabled: false
