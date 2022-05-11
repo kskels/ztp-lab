@@ -19,6 +19,15 @@ spec:
           dhcp: false
         ipv6:
           enabled: false
+
+      - name: eno8403
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: false
+        ipv6:
+          enabled: false
+
     dns-resolver:
       config:
         search:
@@ -31,6 +40,9 @@ spec:
           next-hop-address: 192.168.212.1
           next-hop-interface: eno8303
           table-id: 254
+
   interfaces:
     - name: "eno8303"
       macAddress: "b8:cb:29:d9:2f:54"
+    - name: "eno8403"
+      macAddress: "b8:cb:29:d9:2f:55"
