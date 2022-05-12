@@ -1,0 +1,3 @@
+resources:
+- storage-class.yaml
+- local-volumes.yaml

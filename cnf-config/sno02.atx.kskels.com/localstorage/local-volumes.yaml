@@ -1,0 +1,39 @@
+---
+kind: LocalVolume
+apiVersion: local.storage.openshift.io/v1
+metadata:
+  name: dev-sdb
+  namespace: openshift-local-storage
+spec:
+  storageClassDevices:
+    - devicePaths:
+        - /dev/sdb
+      fsType: ext4
+      storageClassName: local-storage
+      volumeMode: Filesystem
+---
+kind: LocalVolume
+apiVersion: local.storage.openshift.io/v1
+metadata:
+  name: dev-sdc
+  namespace: openshift-local-storage
+spec:
+  storageClassDevices:
+    - devicePaths:
+        - /dev/sdc
+      fsType: ext4
+      storageClassName: local-storage
+      volumeMode: Filesystem
+---
+kind: LocalVolume
+apiVersion: local.storage.openshift.io/v1
+metadata:
+  name: dev-sdd
+  namespace: openshift-local-storage
+spec:
+  storageClassDevices:
+    - devicePaths:
+        - /dev/sdd
+      fsType: ext4
+      storageClassName: local-storage
+      volumeMode: Filesystem
