@@ -1,0 +1,2 @@
+resources:
+- load-sctp-module.yaml
