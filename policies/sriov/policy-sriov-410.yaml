@@ -14,6 +14,53 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
+          name: policy-sriov-namespace
+        spec:
+          remediationAction: enforce
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["*"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: Namespace
+                metadata:
+                  labels:
+                    kubernetes.io/metadata.name: openshift-sriov-network-operator
+                  annotations:
+                    workload.openshift.io/allowed: management
+                  name: openshift-sriov-network-operator
+                spec: {}
+
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-sriov-operatorgroup
+        spec:
+          remediationAction: enforce
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["*"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: operators.coreos.com/v1
+                kind: OperatorGroup
+                metadata:
+                  name: sriov-network-operators
+                  namespace: openshift-sriov-network-operator
+                spec:
+                  targetNamespaces:
+                  - openshift-sriov-network-operator
+
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
           name: policy-sriov-subscription
         spec:
           remediationAction: enforce # the policy-template spec.remediationAction is overridden by the preceding parameter value for spec.remediationAction.

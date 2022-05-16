@@ -14,6 +14,53 @@ spec:
         apiVersion: policy.open-cluster-management.io/v1
         kind: ConfigurationPolicy
         metadata:
+          name: policy-localstorage-namespace
+        spec:
+          remediationAction: enforce
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["*"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: v1
+                kind: Namespace
+                metadata:
+                  labels:
+                    kubernetes.io/metadata.name: openshift-local-storage
+                  annotations:
+                    workload.openshift.io/allowed: management
+                  name: openshift-local-storage
+                spec: {}
+
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-localstorage-operatorgroup
+        spec:
+          remediationAction: enforce
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["*"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: operators.coreos.com/v1
+                kind: OperatorGroup
+                metadata:
+                  name: localstorage-operators
+                  namespace: openshift-local-storage
+                spec:
+                  targetNamespaces:
+                  - openshift-local-storage
+
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
           name: policy-localstorage-subscription
         spec:
           remediationAction: enforce
