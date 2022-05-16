@@ -20,13 +20,12 @@ spec:
         ipv6:
           enabled: false
 
-      - name: eno8403
-        type: ethernet
+      - name: eno8403.4004
+        type: vlan
         state: up
-        ipv4:
-          enabled: false
-        ipv6:
-          enabled: false
+        vlan:
+          base-iface: eno8403
+          id: 4004
 
     dns-resolver:
       config:
@@ -44,5 +43,3 @@ spec:
   interfaces:
     - name: "eno8303"
       macAddress: "b8:cb:29:d9:2f:54"
-    - name: "eno8403"
-      macAddress: "b8:cb:29:d9:2f:55"
