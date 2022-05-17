@@ -77,7 +77,7 @@ spec:
                   name: local-storage-operator
                   namespace: openshift-local-storage
                 spec:
-                  channel: 'stable'
+                  channel: '4.10'
                   installPlanApproval: Automatic
                   name: local-storage-operator
                   source: redhat-operators
