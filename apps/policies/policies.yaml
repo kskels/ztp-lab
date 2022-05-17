@@ -1,7 +1,7 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: policies
+  name: acm-policies
   namespace: ztp-clusters
 spec:
   componentKinds:
@@ -13,7 +13,7 @@ spec:
       - key: app
         operator: In
         values:
-          - policies
+          - acm-policies
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: Subscription
@@ -23,7 +23,7 @@ metadata:
     apps.open-cluster-management.io/git-path: policies
     apps.open-cluster-management.io/reconcile-option: merge
   labels:
-    app: policies
+    app: acm-policies
   name: policies-subscription-1
   namespace: ztp-clusters
 spec:
