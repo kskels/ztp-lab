@@ -7,15 +7,19 @@ spec:
   # https://access.redhat.com/solutions/37376
   additionalKernelArgs:
   - audit=0
+  - mce=off
+  - nmi_watchdog=0
   - pci=realloc
   hugepages:
     defaultHugepagesSize: 1G
     pages:
-    - count: 16
+    - count: 8
       size: 1G
   cpu:
     isolated: 4-7,8-11
     reserved: 0-3,12-15
+  machineConfigPoolSelector:
+    pools.operator.machineconfiguration.openshift.io/master: ""
   nodeSelector:
     node-role.kubernetes.io/master: ""
   numa:
