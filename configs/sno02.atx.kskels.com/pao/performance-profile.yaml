@@ -23,6 +23,6 @@ spec:
   nodeSelector:
     node-role.kubernetes.io/master: ""
   numa:
-    topologyPolicy: best-effort
+    topologyPolicy: single-numa-node
   realTimeKernel:
     enabled: false
