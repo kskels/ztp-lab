@@ -1,4 +1,4 @@
 resources:
   - localstorage/
   - pao/
-  - sriov/
+  # - sriov/
