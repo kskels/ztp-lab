@@ -21,4 +21,3 @@ spec:
     enabled: true
   searchCollector:
     enabled: true
-  version: 2.2.0
