@@ -30,19 +30,19 @@ spec:
                 kind: Namespace
                 apiVersion: v1
                 metadata:
-                  name: prod
+                  name: demo-prod
             - complianceType: musthave
               objectDefinition:
                 kind: Namespace
                 apiVersion: v1
                 metadata:
-                  name: dev
+                  name: demo-dev
             - complianceType: musthave
               objectDefinition:
                 kind: Namespace
                 apiVersion: v1
                 metadata:
-                  name: stage
+                  name: demo-stage
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
@@ -69,7 +69,7 @@ spec:
       type: ManagedClusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - key: cluster-name
+      - key: sno
         operator: In
         values:
-          - sno01
+          - "true"
