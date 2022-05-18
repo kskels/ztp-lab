@@ -1,5 +1,4 @@
 resources:
   - localstorage/
   - pao/
-  #- sriov/
-  #- sctp
+  - sriov/

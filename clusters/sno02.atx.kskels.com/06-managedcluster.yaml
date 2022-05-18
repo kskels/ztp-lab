@@ -9,9 +9,10 @@ metadata:
     usage: "development"
     remote-cluster: "true"
 
+    localstorage: "true"
     pao: "true"
     sriov: "true"
-    localstorage: "true"
+    sctp: "true"
 
     # Labels for OpenShift Gitops
     cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
