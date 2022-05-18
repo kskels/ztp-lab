@@ -1,4 +1,4 @@
 resources:
   # - ocp01.atx.kskels.com.yaml
   - sno01.atx.kskels.com.yaml
-  - sno02.atx.kskels.com.yaml
+    # - sno02.atx.kskels.com.yaml
