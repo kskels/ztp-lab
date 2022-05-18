@@ -1,0 +1,13 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: cluster-sno01-atx-kskels-com
+  namespace: ztp-clusters
+spec:
+  clusterConditions:
+    - type: "ManagedClusterJoined"
+      status: "True"
+  clusterSelector:
+    matchExpressions: []
+    matchLabels:
+      name: "sno01-atx-kskels-com"
