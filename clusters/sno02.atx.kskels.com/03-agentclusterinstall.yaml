@@ -9,7 +9,7 @@ spec:
   clusterDeploymentRef:
     name: sno02-atx-kskels-com
   imageSetRef:
-    name: openshift-v4.10.12
+    name: openshift-v4.10.13
   networking:
     clusterNetwork:
       - cidr: "10.100.0.0/16"
