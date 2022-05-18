@@ -15,9 +15,9 @@ spec:
     pages:
     - count: 8
       size: 1G
-  # cpu:
-  #   isolated: 4-7,8-11
-  #   reserved: 0-3,12-15
+  cpu:
+    isolated: 0-1
+    reserved: 3-4
   machineConfigPoolSelector:
     pools.operator.machineconfiguration.openshift.io/master: ""
   nodeSelector:
