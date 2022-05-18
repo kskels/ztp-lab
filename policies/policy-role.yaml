@@ -1,0 +1,126 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-rolebinding
+  namespace: ztp-clusters
+  annotations:
+    policy.open-cluster-management.io/standards: NIST-CSF
+    policy.open-cluster-management.io/categories: PR.AC Identity Management and Access Control
+    policy.open-cluster-management.io/controls: PR.AC-4 Access Control
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-rolebinding-operatoruser-rolebinding
+        spec:
+          remediationAction: inform
+          severity: high
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - default
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                kind: RoleBinding
+                apiVersion: rbac.authorization.k8s.io/v1
+                metadata:
+                  name: operatoruser-rolebinding
+                  namespace: prod
+                subjects:
+                  - kind: User
+                    name: admin
+                    apiGroup: rbac.authorization.k8s.io
+                roleRef:
+                  kind: Role
+                  name: operator
+                  apiGroup: rbac.authorization.k8s.io
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-rolebinding-deployments-role
+        spec:
+          remediationAction: inform
+          severity: high
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - default
+          object-templates:
+            - complianceType: mustonlyhave
+              objectDefinition:
+                apiVersion: rbac.authorization.k8s.io/v1
+                kind: Role
+                metadata:
+                  name: deployments-role
+                  namespace: prod
+                rules:
+                  - apiGroups:
+                      - extensions
+                      - apps
+                    resources:
+                      - deployments
+                    verbs:
+                      - get
+                      - list
+                      - watch
+                      - delete
+                      - patch
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-rolebinding-deployments-sa
+        spec:
+          remediationAction: inform
+          severity: high
+          namespaceSelector:
+            exclude:
+              - kube-*
+            include:
+              - default
+          object-templates:
+            - complianceType: mustonlyhave
+              objectDefinition:
+                apiVersion: v1
+                kind: ServiceAccount
+                metadata:
+                  name: deployments-sa
+                  namespace: prod
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-policy-rolebinding
+  namespace: ztp-clusters
+placementRef:
+  name: placement-policy-rolebinding
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+  - name: policy-rolebinding
+    kind: Policy
+    apiGroup: policy.open-cluster-management.io
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: placement-policy-rolebinding
+  namespace: ztp-clusters
+spec:
+  clusterConditions:
+    - status: 'True'
+      type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      - key: cloud
+        operator: In
+        values:
+          - all

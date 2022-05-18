@@ -1,5 +1,7 @@
 resources:
-  - localstorage/
-  - pao/
-  - sriov/
-  - sctp/
+ - policy-load-sctp-module.yaml
+ - policy-localstorage-410.yaml
+ - policy-namespace.yaml
+ - policy-pao-410.yaml
+ - policy-role.yaml
+ - policy-sriov-410.yaml
