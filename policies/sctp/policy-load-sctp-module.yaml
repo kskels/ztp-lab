@@ -1,0 +1,73 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-load-sctp-module
+  annotations:
+    policy.open-cluster-management.io/standards: NIST SP 800-53
+    policy.open-cluster-management.io/categories: CM Configuration Management
+    policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
+spec:
+  remediationAction: enforce
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: ConfigurationPolicy
+        metadata:
+          name: policy-load-sctp-module-subscription
+        spec:
+          remediationAction: enforce
+          severity: low
+          namespaceSelector:
+            exclude: ["kube-*"]
+            include: ["*"]
+          object-templates:
+            - complianceType: musthave
+              objectDefinition:
+                apiVersion: machineconfiguration.openshift.io/v1
+                kind: MachineConfig
+                metadata:
+                  name: load-sctp-module
+                  labels:
+                    machineconfiguration.openshift.io/role: master
+                spec:
+                  config:
+                    ignition:
+                      version: 3.2.0
+                    storage:
+                      files:
+                        - path: /etc/modprobe.d/sctp-blacklist.conf
+                          mode: 0644
+                          overwrite: true
+                          contents:
+                            source: data:,
+                        - path: /etc/modules-load.d/sctp-load.conf
+                          mode: 0644
+                          overwrite: true
+                          contents:
+                            source: data:,sctp
+---
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: binding-policy-load-sctp-module
+placementRef:
+  name: placement-policy-load-sctp-module
+  kind: PlacementRule
+  apiGroup: apps.open-cluster-management.io
+subjects:
+- name: policy-load-sctp-module
+  kind: Policy
+  apiGroup: policy.open-cluster-management.io
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: placement-policy-load-sctp-module
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterJoined
+  clusterSelector:
+    matchExpressions:
+      - {key: sctp, operator: In, values: ["true"]}

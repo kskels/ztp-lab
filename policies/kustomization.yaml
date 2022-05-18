@@ -2,3 +2,4 @@ resources:
   - localstorage/
   - pao/
   - sriov/
+  - sctp/
