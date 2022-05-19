@@ -4,17 +4,20 @@ metadata:
   name: sno02-atx-kskels-com
   namespace: sno02-atx-kskels-com
 spec:
-  clusterLabels:
-    cloud: auto-detect
-    vendor: auto-detect
   applicationManager:
+    argocdCluster: false
     enabled: true
   certPolicyController:
-    enabled: false
+    enabled: true
+  clusterLabels:
+    name: sno02
+    cloud: Baremetal
+    vendor: OpenShift
+  clusterName: sno02
+  clusterNamespace: sno02-atx-kskels-com
   iamPolicyController:
-    enabled: false
+    enabled: true
   policyController:
     enabled: true
   searchCollector:
-    enabled: false
-
+    enabled: true
