@@ -6,7 +6,7 @@ metadata:
   labels:
     name: "sno02"
     sno: "true"
-    usage: "development"
+    usage: "edge"
     remote-cluster: "true"
 
     localstorage: "true"
