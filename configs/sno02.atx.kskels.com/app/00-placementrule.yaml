@@ -10,4 +10,4 @@ spec:
   clusterSelector:
     matchExpressions: []
     matchLabels:
-      name: "sno02-atx-kskels-com"
+      low-latency: "true"
