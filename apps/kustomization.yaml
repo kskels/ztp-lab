@@ -2,4 +2,4 @@ resources:
 - clusters
 - releases
 - policies
-# - argocd
+- argocd
