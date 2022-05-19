@@ -9,6 +9,3 @@ metadata:
 spec:
   type: Git
   pathname: 'https://github.com/kskels/ztp-lab.git'
-  insecureSkipVerify: false
-  secretRef:
-    name: ztp-lab-auth
