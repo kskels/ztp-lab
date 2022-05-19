@@ -14,6 +14,8 @@ metadata:
     # sriov: "true"
     # sctp: "true"
 
+    # low-latency: "sno02"
+
     # Labels for OpenShift Gitops
     cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
     vendor: "OpenShift"
