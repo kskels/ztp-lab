@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: 5gran
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: 5gran-placement
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: '5gran-{{name}}'
+    spec:
+      project: "default"
+      source:
+        repoURL: https://kskels.github.io/charts
+        chart: 5gran
+        targetRevision: 0.0.1
+      destination:
+        server: '{{server}}'
+        namespace: open5gran
+      syncPolicy:
+        automated:
+          allowEmpty: true
+          prune: true
+          selfHeal: true
+        syncOptions:
+            - CreateNamespace=true
+---
+apiVersion: cluster.open-cluster-management.io/v1alpha1
+kind: Placement
+metadata:
+  name: 5gran-placement
+  namespace: openshift-gitops
+spec:
+  predicates:
+  - requiredClusterSelector:
+      labelSelector:
+        matchLabels:
+          usage: edge
+
