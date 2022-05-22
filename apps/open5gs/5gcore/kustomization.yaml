@@ -1,0 +1,6 @@
+resources:
+ - 00-namespace.yaml
+ - 01-application.yaml
+ - 02-channel.yaml
+ - 04-subscription.yaml
+ - 05-placementrule.yaml

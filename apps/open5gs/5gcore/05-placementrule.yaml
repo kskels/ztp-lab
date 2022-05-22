@@ -1,0 +1,12 @@
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  labels:
+    app: 5gcore
+  name: 5gcore-placement-1
+  namespace: open5gcore
+spec:
+  clusterSelector:
+    matchLabels:
+      'usage': 'edge'

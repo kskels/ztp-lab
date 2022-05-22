@@ -1,0 +1,12 @@
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  labels:
+    app: 5gran
+  name: 5gran-placement-1
+  namespace: open5gran
+spec:
+  clusterSelector:
+    matchLabels:
+      'usage': 'edge'
