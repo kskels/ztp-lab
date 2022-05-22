@@ -4,3 +4,5 @@ resources:
  - policy-localstorage-410.yaml
  - policy-pao-410.yaml
  - policy-sriov-410.yaml
+ - policy-5gcore.yaml
+ - policy-5gran.yaml
