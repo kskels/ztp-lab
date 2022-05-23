@@ -5,7 +5,7 @@ metadata:
   annotations:
   labels:
     app: 5gran
-  name: 5gran-subscription-1
+  name: 5gran-subscription-2
   namespace: open5gran
 spec:
   channel: open5gran/cnvopen5gcore
