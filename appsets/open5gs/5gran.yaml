@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: 5gran
+  name: 5gran-argo
   namespace: openshift-gitops
 spec:
   generators:
@@ -9,11 +9,11 @@ spec:
         configMapRef: acm-placement
         labelSelector:
           matchLabels:
-            cluster.open-cluster-management.io/placement: 5gran-placement
+            cluster.open-cluster-management.io/placement: 5gran-placement-argo
         requeueAfterSeconds: 180
   template:
     metadata:
-      name: '5gran-{{name}}'
+      name: '5gran-argo-{{name}}'
     spec:
       project: "default"
       source:
@@ -34,7 +34,7 @@ spec:
 apiVersion: cluster.open-cluster-management.io/v1alpha1
 kind: Placement
 metadata:
-  name: 5gran-placement
+  name: 5gran-placement-argo
   namespace: openshift-gitops
 spec:
   predicates:
