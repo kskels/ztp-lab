@@ -7,5 +7,5 @@ metadata:
   name: cnvopen5gcore
   namespace: open5gcore
 spec:
-  type: HelmRepo
-  pathname: https://kskels.github.io/charts
+  type: Git
+  pathname: https://github.com/kskels/cnvopen5gcore.git

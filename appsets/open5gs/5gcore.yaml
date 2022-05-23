@@ -17,9 +17,9 @@ spec:
     spec:
       project: "default"
       source:
-        repoURL: https://kskels.github.io/charts
-        chart: 5gcore
-        targetRevision: 0.0.1
+        repoURL: https://github.com/kskels/cnvopen5gcore.git
+        path: 5gcore
+        targetRevision: Release-1.0
       destination:
         server: '{{server}}'
         namespace: open5gcore
@@ -41,5 +41,5 @@ spec:
   - requiredClusterSelector:
       labelSelector:
         matchLabels:
-          usage: edge
+          5gcore: "true"
 
