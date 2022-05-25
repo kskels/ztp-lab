@@ -20,4 +20,4 @@ spec:
       - cidr: "192.168.212.0/24"
   provisionRequirements:
     controlPlaneAgents: 1
-  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQD2ySABFOLhAey0kenQr6c1Hu8Qc5YPXgYxmc2kObaE8DTYoQWFIUEVZnrwVwHuVfjUH6EUo7rUYHD+IJgsNbQ7vHR50F9+MO5qTkT2biWlhaS32wVr3f9xk6GAxTo2UxHPkzcBnXqC0Qsu6GQriz7yenMJLW6ba4tIvBf/tTKVQwuNWxAn4fA8PLhc2YOgHVYdAUHkGAfEzl5f8lCKYliMTdR9COVjm6E7rAhKFAFBJU+oUiWCVhnfLrpQpBg3oHGDy54zMj/jch8bksr1WJq52BlLhujpVHT4GrUZCbs4vjWoMQQJTovdPNALITljcfPd4GAVfwgiG4Lf8A4njX5rX4t8qkxG8n9xMr7DkNYnouUseOL/EsZ7iX3tSlPY7QF18yTQ+byc55KtDE1HsI6mnIJ1K4Egp3iH+1T8gtfI0h4cNmeBvjai/X8UrRa3GFYCEFhmYNYGGd9NMKHqMvV/7pBRIMuEDzpf7adcTOwTwwdh701ZRV1Ry+daEdiay2k= bpandey@Balkrishnas-MacBook-Pro"
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDst3pB7hKcKLvq2P7vON4OKgUZDInk9zEu/Kz2ruh/D kskels@redhat.com"
