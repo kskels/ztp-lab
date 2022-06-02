@@ -20,11 +20,11 @@ spec:
         ipv6:
           enabled: false
 
-      - name: enp8s0.4004
+      - name: enp4s0.4004
         type: vlan
         state: up
         vlan:
-          base-iface: enp8s0
+          base-iface: enp4s0
           id: 4004
 
     dns-resolver:
