@@ -24,7 +24,7 @@ spec:
         type: vlan
         state: up
         vlan:
-          base-iface: eno8403
+          base-iface: enp8s0
           id: 4004
 
     dns-resolver:
