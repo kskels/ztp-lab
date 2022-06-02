@@ -19,6 +19,14 @@ spec:
           dhcp: false
         ipv6:
           enabled: false
+
+      - name: enp9s0.4004
+        type: vlan
+        state: up
+        vlan:
+          base-iface: eno8403
+          id: 4004
+
     dns-resolver:
       config:
         search:
