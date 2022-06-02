@@ -20,7 +20,7 @@ spec:
         ipv6:
           enabled: false
 
-      - name: enp9s0.4004
+      - name: enp8s0.4004
         type: vlan
         state: up
         vlan:
