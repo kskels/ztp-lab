@@ -9,4 +9,4 @@ metadata:
 spec:
   clusterSelector:
     matchLabels:
-      'usage': 'edge'
+      'usage': '5gcore'
