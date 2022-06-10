@@ -4,3 +4,4 @@ resources:
  - openshift-v4.10.5.yaml
  - openshift-v4.10.12.yaml
  - openshift-v4.10.13.yaml
+ - openshift-v4.10.15.yaml
