@@ -9,10 +9,10 @@ metadata:
     usage: "edge"
     remote-cluster: "true"
 
-    localstorage: "true"
-    pao: "true"
-    sriov: "true"
-    sctp: "true"
+    # localstorage: "true"
+    # pao: "true"
+    # sriov: "true"
+    # sctp: "true"
 
     low-latency: "sno02"
 
