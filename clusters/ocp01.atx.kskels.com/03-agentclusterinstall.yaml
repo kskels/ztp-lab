@@ -22,4 +22,5 @@ spec:
   ingressVIP: 192.168.212.25
   provisionRequirements:
     controlPlaneAgents: 3
+    workerAgents: 0
   sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDst3pB7hKcKLvq2P7vON4OKgUZDInk9zEu/Kz2ruh/D kskels@redhat.com"

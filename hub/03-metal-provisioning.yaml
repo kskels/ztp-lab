@@ -9,5 +9,5 @@ spec:
   provisioningMacAddresses:
   - 52:54:00:c9:1e:14
   provisioningNetwork: Disabled
-  provisioningOSDownloadURL: https://rhcos-redirector.apps.art.xq1c.p1.openshiftapps.com/art/storage/releases/rhcos-4.9/49.84.202110081407-0/x86_64/rhcos-49.84.202110081407-0-openstack.x86_64.qcow2.gz?sha256=bbbb9243f084fc330a2c95e0bf33708d68e17628f48086eac574dcb96d35df9e
+  #provisioningOSDownloadURL: https://rhcos-redirector.apps.art.xq1c.p1.openshiftapps.com/art/storage/releases/rhcos-4.9/49.84.202110081407-0/x86_64/rhcos-49.84.202110081407-0-openstack.x86_64.qcow2.gz?sha256=bbbb9243f084fc330a2c95e0bf33708d68e17628f48086eac574dcb96d35df9e
   watchAllNamespaces: true

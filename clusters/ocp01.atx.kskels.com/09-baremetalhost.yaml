@@ -24,7 +24,7 @@ spec:
   bootMACAddress: 52:54:00:e0:41:f9
   automatedCleaningMode: metadata
   rootDeviceHints:
-    deviceName: "/dev/vda"
+    deviceName: "/dev/sda"
   bmc:
     # for test lab using libvirt with sushy-tools
     # https://docs.openstack.org/sushy-tools/latest/
@@ -57,7 +57,7 @@ spec:
   bootMACAddress: 52:54:00:df:ac:7b
   automatedCleaningMode: metadata
   rootDeviceHints:
-    deviceName: "/dev/vda"
+    deviceName: "/dev/sda"
   bmc:
     # for test lab using libvirt with sushy-tools
     # https://docs.openstack.org/sushy-tools/latest/
@@ -90,7 +90,7 @@ spec:
   bootMACAddress: 52:54:00:53:4d:ef
   automatedCleaningMode: metadata
   rootDeviceHints:
-    deviceName: "/dev/vda"
+    deviceName: "/dev/sda"
   bmc:
     # for test lab using libvirt with sushy-tools
     # https://docs.openstack.org/sushy-tools/latest/
