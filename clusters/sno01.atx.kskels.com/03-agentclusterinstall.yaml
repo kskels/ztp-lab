@@ -20,4 +20,4 @@ spec:
       - cidr: "192.168.212.0/24"
   provisionRequirements:
     controlPlaneAgents: 1
-  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDst3pB7hKcKLvq2P7vON4OKgUZDInk9zEu/Kz2ruh/D kskels@redhat.com"
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxLsmU7suROe520RAqaqE+Xtmx0iIGpG0IFLKcduA3t kskels@redhat.com"
