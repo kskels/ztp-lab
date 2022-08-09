@@ -1,5 +1,5 @@
 resources:
 - clusters
 - releases
-# - policies
+- policies
 - argocd
