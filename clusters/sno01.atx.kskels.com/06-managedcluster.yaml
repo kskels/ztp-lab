@@ -9,9 +9,8 @@ metadata:
     usage: "development"
     remote-cluster: "true"
 
-    # pao: "true"
     sctp: "true"
-    #5gran: "true"
+    5gran: "true"
 
     # Labels for OpenShift Gitops
     cluster.open-cluster-management.io/clusterset: "all-openshift-clusters"
