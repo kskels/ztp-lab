@@ -27,6 +27,6 @@ spec:
   rootDeviceHints:
     deviceName: "/dev/sda"
   bmc:
-    address: idrac-virtualmedia+https://192.168.2.6/redfish/v1/Systems/System.Embedded.1
+    address: idrac-virtualmedia+https://192.168.212.6/redfish/v1/Systems/System.Embedded.1
     credentialsName: bmc-secret
     disableCertificateVerification: true

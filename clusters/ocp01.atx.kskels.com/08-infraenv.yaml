@@ -9,7 +9,7 @@ spec:
   clusterRef:
     name: ocp01-atx-kskels-com
     namespace: ocp01-atx-kskels-com
-  sshAuthorizedKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDst3pB7hKcKLvq2P7vON4OKgUZDInk9zEu/Kz2ruh/D kskels@redhat.com'
+  sshAuthorizedKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxLsmU7suROe520RAqaqE+Xtmx0iIGpG0IFLKcduA3t kskels@redhat.com'
   agentLabelSelector:
     matchLabels:
       cluster-name: ocp01

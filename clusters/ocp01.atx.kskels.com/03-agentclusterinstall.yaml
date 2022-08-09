@@ -9,7 +9,7 @@ spec:
   clusterDeploymentRef:
     name: ocp01-atx-kskels-com
   imageSetRef:
-    name: openshift-v4.10.12
+    name: openshift-v4.10.22
   networking:
     clusterNetwork:
       - cidr: "10.94.0.0/16"
@@ -23,4 +23,4 @@ spec:
   provisionRequirements:
     controlPlaneAgents: 3
     workerAgents: 0
-  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDst3pB7hKcKLvq2P7vON4OKgUZDInk9zEu/Kz2ruh/D kskels@redhat.com"
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxLsmU7suROe520RAqaqE+Xtmx0iIGpG0IFLKcduA3t kskels@redhat.com"
