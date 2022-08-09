@@ -15,8 +15,6 @@ metadata:
     # sctp: "true"
 
     low-latency: "sno02"
-    
-    kaspars: "test"
 
     # 5gcore: "true"
 
