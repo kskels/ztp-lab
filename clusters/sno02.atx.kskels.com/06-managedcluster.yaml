@@ -12,7 +12,7 @@ metadata:
     localstorage: "true"
     pao: "true"
     sriov: "true"
-    sctp: "true"
+    # sctp: "true"
 
     low-latency: "sno02"
 
