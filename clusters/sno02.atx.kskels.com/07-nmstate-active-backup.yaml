@@ -54,7 +54,7 @@ spec:
           enabled: false
         ipv6:
           enabled: false
-          
+
       - name: ens4f0
         type: ethernet
         state: up
