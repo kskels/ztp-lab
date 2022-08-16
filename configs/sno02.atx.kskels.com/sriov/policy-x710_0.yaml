@@ -1,0 +1,56 @@
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: policy-x710-0-openshift
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: x710_0_openshift
+  deviceType: netdevice
+  isRdma: false
+  linkType: eth
+  mtu: 1500
+  nicSelector:
+    vendor: "8086"
+    deviceID: "1572"
+    pfNames: ["ens4f0#0-0"]
+  numVfs: 9
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+---
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: policy-x710-0-vfio-pci
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: x710_0_vfio_pci
+  deviceType: vfio-pci
+  isRdma: false
+  linkType: eth
+  mtu: 1500
+  nicSelector:
+    vendor: "8086"
+    deviceID: "1572"
+    pfNames: ["ens4f0#1-4"]
+  numVfs: 9
+  nodeSelector:
+    node-role.kubernetes.io/master: ""
+---
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: policy-x710-0-netdevice
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: x710_0_netdevice
+  deviceType: netdevice
+  isRdma: false
+  linkType: eth
+  mtu: 1500
+  nicSelector:
+    vendor: "8086"
+    deviceID: "1572"
+    pfNames: ["ens4f0#5-8"]
+  numVfs: 9
+  nodeSelector:
+    node-role.kubernetes.io/master: ""

@@ -1,0 +1,87 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: NMStateConfig
+metadata:
+  name: sno02-atx-kskels-com
+  namespace: sno02-atx-kskels-com
+  labels:
+    cluster-name: sno02
+spec:
+  config:
+    interfaces:
+
+      - name: bond0
+        type: bond
+        state: up
+        ipv4:
+          enabled: false
+        ipv6:
+          enabled: false
+        link-aggregation:
+          mode: active-backup
+          options:
+            miimon: '140'
+          port:
+          - ens4f0
+          - ens4f1
+
+      - name: bond0.4002
+        type: vlan
+        state: up
+        ipv4:
+          enabled: true
+          address:
+            - ip: 192.168.212.60
+              prefix-length: 24
+          dhcp: false
+        ipv6:
+          enabled: false
+        vlan:
+          base-iface: bond0
+          id: 4002
+
+      - name: eno8303
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: false
+        ipv6:
+          enabled: false
+
+      - name: eno8403
+        type: ethernet
+        state: up
+        ipv4:
+          enabled: false
+        ipv6:
+          enabled: false
+          
+      - name: ens4f0
+        type: ethernet
+        state: up
+
+      - name: ens4f1
+        type: ethernet
+        state: up
+
+    dns-resolver:
+      config:
+        search:
+          - kskels.com
+        server:
+          - 192.168.2.1
+    routes:
+      config:
+        - destination: 0.0.0.0/0
+          next-hop-address: 192.168.212.1
+          next-hop-interface: bond0.4002
+          table-id: 254
+
+  interfaces:
+    - name: "eno8303"
+      macAddress: "b8:cb:29:d9:2f:54"
+    - name: "eno8403"
+      macAddress: "b8:cb:29:d9:2f:55"
+    - name: "ens4f0"
+      macAddress: "f8:f2:1e:02:b8:c0"
+    - name: "ens4f1"
+      macAddress: "f8:f2:1e:02:b8:c2"
