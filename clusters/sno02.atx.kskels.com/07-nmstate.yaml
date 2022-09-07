@@ -22,7 +22,11 @@ spec:
 
       - name: eno8403
         type: ethernet
-        state: down
+        state: up
+        ipv4:
+          enabled: false
+        ipv6:
+          enabled: false
 
       - name: ens4f0
         type: ethernet
@@ -34,7 +38,11 @@ spec:
 
       - name: ens4f1
         type: ethernet
-        state: down
+        state: up
+        ipv4:
+          enabled: false
+        ipv6:
+          enabled: false
 
     dns-resolver:
       config:
