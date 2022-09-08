@@ -1,3 +1,3 @@
 resources:
-- policy-x710-netdevice-1.yaml
-- policy-x710-vfio-pci-1.yaml
+- policy-x710_0.yaml
+- policy-x710_1.yaml
