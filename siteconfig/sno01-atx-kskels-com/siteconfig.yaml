@@ -28,7 +28,7 @@ spec:
     nodes:
       - hostName: "sno01"
         role: "master"
-        bmcAddress: "idrac-virtualmedia+https://192.168.212.6/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "redfish-virtualmedia+http://192.168.211.5:8000/redfish/v1/Systems/13e092cd-71ed-43c9-a75e-e4eaa21a4d62"
         bmcCredentialsName:
           name: "bmc-secret" 
         bootMACAddress: "b8:cb:29:d9:2f:54"
