@@ -23,8 +23,8 @@ spec:
       - cidr: "192.168.212.0/24"
     serviceNetwork:
       - "172.101.0.0/16"
-    additionalNTPSources:
-      - "192.168.2.1"
+    #additionalNTPSources:
+    #  - "192.168.2.1"
     nodes:
       - hostName: "sno02"
         role: "master"
