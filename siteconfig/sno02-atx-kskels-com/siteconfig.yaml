@@ -34,7 +34,8 @@ spec:
         bootMACAddress: "b8:cb:29:d9:2f:54"
         bootMode: "UEFI"
         rootDeviceHints:
-          hctl: '1:0:0:0'
+          #hctl: '1:0:0:0'
+          deviceName: "/dev/sda"
         cpuset: "0-1,14-15"
         nodeNetwork: 
           interfaces:
