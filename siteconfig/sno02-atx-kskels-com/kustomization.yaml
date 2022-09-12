@@ -1,5 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+generators:
+siteconfig.yaml
+
 resources:
-- sno02-atx-kskels-com
+- pull-secret.yaml
+- bmc-secret.yaml
