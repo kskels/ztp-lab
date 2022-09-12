@@ -23,8 +23,8 @@ spec:
       - cidr: "192.168.212.0/24"
     serviceNetwork:
       - "172.101.0.0/16"
-    additionalNTPSources:
-      - "192.168.2.1"
+    #additionalNTPSources:
+    #  - "192.168.2.1"
     nodes:
       - hostName: "sno02"
         role: "master"
@@ -34,7 +34,7 @@ spec:
         bootMACAddress: "b8:cb:29:d9:2f:54"
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: "/dev/sda"
+          hctl: '0:0:0:0'
         cpuset: "0-1,14-15"
         nodeNetwork: 
           interfaces:
