@@ -38,8 +38,14 @@ spec:
         cpuset: "0-1,14-15"
         nodeNetwork: 
           interfaces:
-            - name: eno8303 
+            - name: "eno8303"
               macAddress: "b8:cb:29:d9:2f:54"
+            - name: "eno8403"
+              macAddress: "b8:cb:29:d9:2f:55"
+            - name: "ens4f0"
+              macAddress: "f8:f2:1e:02:b8:c0"
+            - name: "ens4f1"
+              macAddress: "f8:f2:1e:02:b8:c2"
           config:
             interfaces:
               - name: eno8303
@@ -51,6 +57,27 @@ spec:
                   address:
                   - ip: 192.168.212.60
                     prefix-length: 24
+                ipv6:
+                  enabled: false
+              - name: eno8403
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
+              - name: ens4f0
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
+              - name: ens4f1
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: false
                 ipv6:
                   enabled: false
             dns-resolver:
