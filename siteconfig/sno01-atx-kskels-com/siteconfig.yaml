@@ -71,5 +71,5 @@ spec:
               config:
               - destination: 0.0.0.0/0
                 next-hop-address: 192.168.212.1
-                next-hop-interface: eno8303
+                next-hop-interface: enp1s0
                 table-id: 254
