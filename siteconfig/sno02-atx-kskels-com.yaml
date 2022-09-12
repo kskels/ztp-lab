@@ -1,0 +1,67 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "sno02-atx-kskels-com"
+  namespace: "sno02-atx-kskels-com"
+spec:
+  baseDomain: "atx.kskels.com"
+  pullSecretRef:
+    name: "pull-secret"
+  clusterImageSetNameRef: "openshift-4.10.22" 
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxLsmU7suROe520RAqaqE+Xtmx0iIGpG0IFLKcduA3t kskels@redhat.com"
+  clusters:
+  - clusterName: "sno02"
+    networkType: "OVNKubernetes"
+    clusterLabels: 
+      common: true
+      sites : "sno02"
+    clusterNetwork:
+      - cidr: "10.100.0.0/16"
+        hostPrefix: 64
+    machineNetwork: 
+      - cidr: "192.168.212.0/24"
+    serviceNetwork:
+      - "172.101.0.0/16"
+    additionalNTPSources:
+      - "192.168.2.1"
+    nodes:
+      - hostName: "sno02"
+        role: "master"
+        bmcAddress: "idrac-virtualmedia+https://192.168.212.6/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "bmh-secret" 
+        bootMACAddress: "b8:cb:29:d9:2f:54"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          hctl: '0:0:0:0'
+        cpuset: "0-1,14-15"
+        nodeNetwork: 
+          interfaces:
+            - name: eno8303 
+              macAddress: "b8:cb:29:d9:2f:54"
+          config:
+            interfaces:
+              - name: eno8303
+                type: ethernet
+                state: up
+                macAddress: "b8:cb:29:d9:2f:54"
+                ipv4:
+                  enabled: true
+                  address:
+                  - ip: 192.168.212.60
+                    prefix-length: 24
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                search:
+                - kskels.com
+                server:
+                - 192.168.2.1
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-address: 192.168.212.1
+                next-hop-interface: eno8303
+                table-id: 254
