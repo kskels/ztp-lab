@@ -8,7 +8,7 @@ spec:
   baseDomain: "atx.kskels.com"
   pullSecretRef:
     name: "pull-secret"
-  clusterImageSetNameRef: "openshift-4.10.22" 
+  clusterImageSetNameRef: "openshift-v4.10.22"
   sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxLsmU7suROe520RAqaqE+Xtmx0iIGpG0IFLKcduA3t kskels@redhat.com"
   clusters:
   - clusterName: "sno02"
